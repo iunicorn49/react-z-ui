@@ -1,0 +1,33 @@
+@mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-raduis;
+}
+
+// 参数加冒号后面跟随参数默认值
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background, 7.5%),
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+  &:hover,
+  &.focus,
+  &:focus {
+    background: $hover-background;
+    border-color: $hover-border;
+    color: $hover-color;
+    outline: none;
+  }
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border-color: $border;
+  }
+}
