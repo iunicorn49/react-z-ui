@@ -1,25 +1,24 @@
 import React from 'react'
 import './App.scss'
 
-import Button, { ButtonType, ButtonSize } from './components/Button/button'
+// import Button, { ButtonType, ButtonSize } from './components/Button/button'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
+
+const handleclick = (idx = 0) => {
+  console.error('idx:', idx)
+}
 
 function App() {
   return (
     <div className='App'>
-      <Button>普通</Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
-        Primary Large
-      </Button>
-      <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
-        Danger Small
-      </Button>
-      <Button disabled>disabled</Button>
-      <Button btnType={ButtonType.Link} href='www.baidu.com'>
-        Link
-      </Button>
-      <Button btnType={ButtonType.Link} disabled href='www.baidu.com'>
-        Link disabled
-      </Button>
+      <div>
+        <Menu mode='vertical' defaultIndex={1} onSelect={handleclick}>
+          <MenuItem index={0}>a</MenuItem>
+          <MenuItem index={1}>b</MenuItem>
+          <MenuItem index={2}>c</MenuItem>
+        </Menu>
+      </div>
     </div>
   )
 }
